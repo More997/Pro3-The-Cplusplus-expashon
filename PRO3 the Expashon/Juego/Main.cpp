@@ -1,19 +1,17 @@
 #include <iostream>
-#include <SFML/Window.hpp>
-
+#include <SFML/Graphics.hpp>
 using namespace sf;
 int main()
-{
-	Window window(VideoMode(800, 600), "PRO3 the C++ Expashon!");
-	while (window.isOpen())
+{	
+	RenderWindow wndws(VideoMode(800, 600), "Pro3 C++", Style::Close||Style::Titlebar);
+	while (wndws.isOpen())
 	{
-		Event event;
-		while (window.pollEvent(event))
+		Event evento;
+		while (wndws.pollEvent(evento)) 
 		{
-			if (event.type == Event::Closed)
-				window.close();
+			if (evento.type == evento.Closed)
+				wndws.close();
 		}
 	}
-
-		return 0;
+	return 0;
 }
