@@ -1,5 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 using namespace sf;
 int main()
 {
@@ -13,50 +15,63 @@ int main()
 	int yC = 0;
 	int xS = 0;
 	int yS = 0;
-	clock.restart();
-	Time tiempo;
 	Event evento;
+	Time elapsed;
+	clock.restart();
+	Texture texture;
+	texture.loadFromFile("ball.png");
+	Sprite sprite;
+	sprite.setTexture(texture);
+	Music music;
+	if (!music.openFromFile("bensound-goinghigher.mp3"))
+		return -1; 
+	music.play();
 	while (wndw.isOpen())
 	{
-		
+		 elapsed = clock.getElapsedTime();
 		while (wndw.pollEvent(evento))
 		{
 			if (evento.type == Event::Closed)
 				wndw.close();
-		}	
-		if (tiempo.asMicroseconds() == 2) 
+		}
+		
+		if (elapsed.asSeconds() == 2.0f)
 		{
 			xC++;
 			clock.restart();
 		}
 		if (evento.type == Event::KeyPressed)
 		{
-			if (evento.key.code == Keyboard::Up && yS != 0)
-			{
-				yS--;
+				if (evento.key.code == Keyboard::Up && yS != 0)
+				{
+					yS--;
+				}
+				else if (evento.key.code == Keyboard::Down && yS != 585)
+				{
+					yS++;
+				}
+				else if (evento.key.code == Keyboard::Right && xS != 785) 
+				{
+					xS++;
+				}
+				else if (evento.key.code == Keyboard::Left && xS != 0)
+				{
+					xS--;
+				}
 			}
-			else if (evento.key.code == Keyboard::Down && yS != 600)
-			{
-				yS++;
-			}
-			else if (evento.key.code == Keyboard::Right && xS != 800) 
-			{
-				xS++;
-			}
-			else if (evento.key.code == Keyboard::Left && xS != 0)
-			{
-				xS--;
-			}
-		}
+		
 		shape.setPosition(xC, yC);
 		cuadrado.setPosition(xS, yS);
 		wndw.clear();
+		wndw.clear(Color::White);
 		wndw.draw(shape);
 		wndw.draw(cuadrado);
+		wndw.draw(sprite);
 		wndw.display();
 		
 		
 	}
-
 	return 0;
 }
+
+	
