@@ -14,29 +14,35 @@ Juego::~Juego()
 
 int Juego::Play()
 {
+	Dir.setHost("http://query.yahooapis.com");
+	Req.setUri("/v1/public/yql?q=select%20item.condition.text%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22buenos%20aires%2C%20arg%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+	Res = Dir.sendRequest(Req);
+	data = json::parse(Res.getBody().c_str());
+	int clima = data["query"]["results"]["channel"]["item"]["condition"]["code"];
+	cout << clima << endl;
+
 	RenderWindow wndw(VideoMode(800, 600), "Pro the C++ Expashon");
 	CircleShape shape(25.f);
 	RectangleShape cuadrado(Vector2f(30, 30));
-	Clock clock;
 	shape.setFillColor(Color::Red);
 	cuadrado.setFillColor(Color::Green);
 	float xC = 0;
 	float yC = 0;
 	float xPJ = 25;
 	float yPJ = 25;
-	Event evento;
+	
 	//Time elapsed;
 	//clock.restart();
-	Texture texture;
+	/*Texture texture;
 	texture.loadFromFile("PJ.png");
 	IntRect rectSourceSprite(40, 0, 40, 40);
-	Sprite sprite(texture, IntRect(0, 0, 40, 40));
-	SoundBuffer music;
+	Sprite sprite(texture, IntRect(0, 0, 40, 40));*/
+	
 	if (!music.loadFromFile("bensound-goinghigher.ogg"))
 	{
 		return -1;
 	}
-	Sound sound;
+	
 	sound.setBuffer(music);
 	sound.setLoop(true);
 	sound.play();
@@ -56,18 +62,33 @@ int Juego::Play()
 		//clock.restart();
 		//}
 		
-		if (cuadrado.getGlobalBounds().intersects(sprite.getGlobalBounds())) {
+		/*if (cuadrado.getGlobalBounds().intersects(pj.getSprite.getGlobalBounds())) {
 			xPJ = 50;
 			yPJ = 50;
-		}
-		sprite.setTextureRect(rectSourceSprite);
+		}*/
+		//pj.getSprite.setTextureRect(pj.getIntRect());
 		shape.setPosition(xC, yC);
-		sprite.setPosition(xPJ, yPJ);
-		wndw.clear();
-		wndw.clear(Color::White);
+		//pj.getSprite.setPosition(pj.getX(), pj.getY());
+		wndw.clear();	
+		switch (clima)
+		{
+		case 26:
+			wndw.clear(Color::Blue);
+			break;
+		case 31:
+		case 32:
+			wndw.clear(Color::Cyan);
+			break;
+		case 10:
+			wndw.clear(Color::Magenta);
+		default:
+			wndw.clear(Color::White);
+			break;
+		}
+		
 		wndw.draw(shape);
 		wndw.draw(cuadrado);
-		wndw.draw(sprite);
+		wndw.draw(pj.getSprite());
 		wndw.display();
 	}
 	return 0;
