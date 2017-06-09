@@ -23,10 +23,14 @@ private:
 	SoundBuffer music;
 	Sound sound;
 	Clock clock;
+	bool byemenu = false;
+	bool findeljuego = false;
 public:
 	Juego();
 	~Juego();
 	int Play();
+	int Menu();
+	int Creditos();
 };
 #endif
 

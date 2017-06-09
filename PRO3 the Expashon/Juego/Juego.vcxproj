@@ -74,12 +74,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)VLD\include;$(SolutionDir)SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;sfml-system-d.lib;ws2_32.lib;sfml-network-d.lib;sfml-audio-d.lib;sfml-graphics-d.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-d.lib;winmm.lib;gdi32.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)VLD\lib\Win32;$(SolutionDir)SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vld.lib;winmm.lib;sfml-system-d.lib;ws2_32.lib;sfml-network-d.lib;sfml-audio-d.lib;sfml-graphics-d.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-d.lib;winmm.lib;gdi32.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,11 +128,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Enemigos.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Personaje.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Enemigos.h" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Personaje.h" />
   </ItemGroup>

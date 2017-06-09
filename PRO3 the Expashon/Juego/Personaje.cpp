@@ -16,36 +16,33 @@ Personaje::Personaje()
 	sprite.setTextureRect(IntRect(0, 0, 40, 40));
 }
 
-void Personaje::Movimiento(Event evento)
+void Personaje::Movimiento()
 {
-	if (evento.type == Event::KeyPressed)
-	{
-		if (evento.key.code == Keyboard::Up)
+		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
 			Y -= 0.1f;
 			//rectSourceSprite.left = 0;
 			//rectSourceSprite.top = 0;
 		}
-		else if (evento.key.code == Keyboard::Down)
+		else if (Keyboard::isKeyPressed(Keyboard::Down))
 		{
 			Y += 0.1f;
 			//rectSourceSprite.top = 40;
 			//rectSourceSprite.left = 0;
 
 		}
-		else if (evento.key.code == Keyboard::Right)
+		else if (Keyboard::isKeyPressed(Keyboard::Right))
 		{
 			X += 0.1f;
 			//rectSourceSprite.left = 40;
 			//rectSourceSprite.top = 40;
 		}
-		else if (evento.key.code == Keyboard::Left)
+		else if (Keyboard::isKeyPressed(Keyboard::Left))
 		{
 			X -= 0.1f;
 			//rectSourceSprite.left = 40;
 			//rectSourceSprite.top = 0;
 		}
-	}
 	Animacion();
 }
 
@@ -66,6 +63,11 @@ float Personaje::getY()
 Sprite Personaje::getSprite()
 {
 	return sprite;
+}
+
+void Personaje::setSprite(Sprite _Sprite)
+{
+	sprite = _Sprite
 }
 
 IntRect Personaje::getIntRect()

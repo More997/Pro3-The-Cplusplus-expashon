@@ -16,11 +16,12 @@ private:
 
 public:
 	Personaje();
-	void Movimiento(Event evento);
+	void Movimiento();
 	void Animacion();
 	float getX();
 	float getY();
 	Sprite getSprite();
+	void setSprite(Sprite _Sprite);
 	IntRect getIntRect();
 	void setX(float _X);
 	void setY(float _Y);
