@@ -4,6 +4,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Personaje.h"
+#include "Hormigas.h"
 #include "SFML\Network.hpp"
 #include "../json.hpp"
 #include <string>
@@ -23,8 +24,11 @@ private:
 	SoundBuffer music;
 	Sound sound;
 	Clock clock;
-	bool byemenu = false;
-	bool findeljuego = false;
+	Hormigas hrmgs[5];
+	Enemigos bombas[10];
+	bool byemenu;
+	int climan;
+	bool findeljuego;
 public:
 	Juego();
 	~Juego();

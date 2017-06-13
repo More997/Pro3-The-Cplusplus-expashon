@@ -3,6 +3,11 @@
 
 
 Personaje::Personaje()
+:
+X(0),
+Y(0),
+vivo(true),
+texture()
 {
 	texture.loadFromFile("PJ.png");
 	//IntRect rectSourceSprite (40,0,40,0); Left top width height 
@@ -67,13 +72,12 @@ Sprite Personaje::getSprite()
 
 void Personaje::setSprite(Sprite _Sprite)
 {
-	sprite = _Sprite
+	sprite = _Sprite;
 }
 
 IntRect Personaje::getIntRect()
 {
 	return rectSourceSprite;
-	;
 }
 
 void Personaje::setX(float _X)
