@@ -32,16 +32,16 @@ float Arania::getY()
 	return y;
 }
 
-void Arania::movimiento(float xPJ, float yPJ)
+void Arania::Movimiento(float xPJ, float yPJ, Time frameStabilizer)
 {
 	if (xPJ > x)
-		x += 0.1f;
+		x += 200 * frameStabilizer.asSeconds();
 	else
-		x -= 0.1f;
+		x -= 200 * frameStabilizer.asSeconds();
 	if (yPJ > y)
-		y += 0.1f;
+		y += 200 * frameStabilizer.asSeconds();
 	else
-		y -= 0.1f;
+		y -= 200 * frameStabilizer.asSeconds();
 }
 
 void Arania::setActivo(bool resp)

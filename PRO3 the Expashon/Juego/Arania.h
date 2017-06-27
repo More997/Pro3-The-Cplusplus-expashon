@@ -14,7 +14,7 @@ public:
 	float getX();
 	void setY(float _Y);
 	float getY();
-	void movimiento(float xPJ, float yPJ);
+	void Movimiento(float xPJ, float yPJ, Time frameStabilizer);
 	void setActivo(bool resp);
 	bool getActivo();
 };

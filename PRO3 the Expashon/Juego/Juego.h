@@ -8,6 +8,7 @@
 #include "SFML\Network.hpp"
 #include "../json.hpp"
 #include <string>
+#include <list>
 using namespace std;
 using namespace sf;
 using namespace nlohmann;
@@ -24,18 +25,22 @@ private:
 	SoundBuffer music;
 	Sound sound;
 	Clock clock;
-	Hormigas hrmgs[5];
-	Enemigos bombas[10];
-	bool byemenu;
+	bool Endgame;
 	int climan;
 	bool findeljuego;
 	Texture texture;
 	Sprite sprite;
+	list<Hormigas*>hormigas;
+	list<Hormigas*>::iterator iterB = hormigas.begin();
+	list<Hormigas*>::iterator iterF = hormigas.end();
+	list<Hormigas*>::iterator iterMove;
+	float WSizeY;
+	float WSizeX;
 public:
 	Juego();
 	~Juego();
-	int Play();
-	int Menu();
+	int Play(RenderWindow &wndw);
+	int Menu(RenderWindow &wndw);
 	int Creditos();
 };
 #endif

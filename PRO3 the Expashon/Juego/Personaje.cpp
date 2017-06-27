@@ -13,23 +13,23 @@ texture()
 	sprite.setTexture(texture);
 }
 
-void Personaje::Movimiento()
+void Personaje::Movimiento(float WSizeX, float WSizeY, Time frameStabilizer)
 {
-	if (Keyboard::isKeyPressed(Keyboard::Up))
+	if (Keyboard::isKeyPressed(Keyboard::Up)&& Y > 0)
 	{
-		Y -= 0.1f;
+		Y -= 200 * frameStabilizer.asSeconds();
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::Down))
+	else if (Keyboard::isKeyPressed(Keyboard::Down) && Y < WSizeY)
 	{
-		Y += 0.1f;
+		Y += 200 * frameStabilizer.asSeconds();
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::Right))
+	else if (Keyboard::isKeyPressed(Keyboard::Right) && X < WSizeX)
 	{
-		X += 0.1f;
+		X += 200 * frameStabilizer.asSeconds();
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::Left))
+	else if (Keyboard::isKeyPressed(Keyboard::Left) && X > 0)
 	{
-		X -= 0.1f;
+		X -= 200 * frameStabilizer.asSeconds();
 	}
 	sprite.setPosition(X, Y);
 }

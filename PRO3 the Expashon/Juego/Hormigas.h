@@ -9,7 +9,7 @@ class Hormigas :
 	int v1;
 public:
 	Hormigas();
-	void Movimiento();
+	void Movimiento(float WSizeX, float WSizeY, Time frameStabilizer);
 	~Hormigas();
 };
 

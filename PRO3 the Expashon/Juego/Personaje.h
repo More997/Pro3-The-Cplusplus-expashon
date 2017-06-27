@@ -15,7 +15,7 @@ private:
 
 public:
 	Personaje();
-	void Movimiento();
+	void Movimiento(float WSizeX, float WSizeY, Time frameStabilizer);
 	float getX();
 	float getY();
 	Sprite getSprite();
