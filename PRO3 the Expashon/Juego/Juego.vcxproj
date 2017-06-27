@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Arania.cpp" />
     <ClCompile Include="Enemigos.cpp" />
     <ClCompile Include="Hormigas.cpp" />
     <ClCompile Include="Juego.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Personaje.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Arania.h" />
     <ClInclude Include="Enemigos.h" />
     <ClInclude Include="Hormigas.h" />
     <ClInclude Include="Juego.h" />

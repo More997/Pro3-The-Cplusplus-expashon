@@ -5,10 +5,13 @@
 Juego::Juego()
 :
 byemenu(false),
-findeljuego(false)
+findeljuego(false),
+texture()
 {
-	
+	texture.loadFromFile("Tela.png");
+	sprite.setTexture(texture);
 }
+
 
 
 Juego::~Juego()
@@ -26,13 +29,13 @@ int Juego::Play()
 	climan = stoi(clima);
 
 	RenderWindow wndw(VideoMode(800, 600), "Pro the C++ Expashon");
-	CircleShape shape(25.f);
+	/*CircleShape shape(25.f);
 	RectangleShape cuadrado(Vector2f(30, 30));
 	shape.setFillColor(Color::Red);
 	cuadrado.setFillColor(Color::Green);
 	float xC = 0;
 	float yC = 0;
-	
+	*/
 
 	
 	/*Texture texture;
@@ -61,14 +64,12 @@ int Juego::Play()
 		
 		//if (elapsed.asSeconds() == 2.0f)
 		//{
-		xC += 0.1f;
+	//	xC += 0.1f;
 		//clock.restart();
 		//}
 		
 		pj.Movimiento();
-		pj.getSprite().setTextureRect(pj.getIntRect());
-		shape.setPosition(xC, yC);
-		pj.getSprite().setPosition(pj.getX(), pj.getY());
+	//	shape.setPosition(xC, yC);
 		wndw.clear();	
 	switch (climan)
 		{
@@ -87,8 +88,9 @@ int Juego::Play()
 			break;
 		}
 		//wndw.clear(Color::White);
-		wndw.draw(shape);
-		wndw.draw(cuadrado);
+	/*	wndw.draw(shape);
+		wndw.draw(cuadrado);*/
+		wndw.draw(sprite);
 		wndw.draw(pj.getSprite());
 		wndw.display();
 	}

@@ -29,6 +29,8 @@ private:
 	bool byemenu;
 	int climan;
 	bool findeljuego;
+	Texture texture;
+	Sprite sprite;
 public:
 	Juego();
 	~Juego();
