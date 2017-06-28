@@ -33,6 +33,7 @@ private:
 	float WSizeY;
 	float WSizeX;
 	int puntaje;
+	Arania arania;
 public:
 	Juego();
 	~Juego();

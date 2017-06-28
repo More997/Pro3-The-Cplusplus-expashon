@@ -20,25 +20,22 @@ Juego::~Juego()
 
 int Juego::Play(/*RenderWindow &wndw*/)
 {
+	arania.Activando(true);
 	puntaje = 0;
 	float WSizeY = 600;
 	float WSizeX = 800;
 	RenderWindow wndw(VideoMode(WSizeX, WSizeY), "Pro the C++ Expashon");
-	while (wndw.isOpen()) 
+	while (wndw.isOpen() || pj.getVivo() == true)
 	{
 		Time frameStabilizer = clock.restart();
-		
 		while (wndw.pollEvent(evento))
 		{
 			if (evento.type == Event::Closed)
 				break;
 		}
-
+		pj.setVivo(arania.Colision(pj));
+		arania.Movimiento(pj, frameStabilizer);
 		pj.Movimiento(WSizeX, WSizeY,frameStabilizer);
-		if (findeljuego == true) 
-		{
-			break;
-		}
 		wndw.clear();	
 	switch (climan)
 		{
@@ -58,6 +55,7 @@ int Juego::Play(/*RenderWindow &wndw*/)
 		}
 		wndw.draw(sprite);
 		wndw.draw(pj.getSprite());
+		wndw.draw(arania.getSprite());
 		wndw.display();
 	}
 	return 0;

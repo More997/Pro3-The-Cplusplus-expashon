@@ -2,11 +2,13 @@
 
 
 
-Arania::Arania(float WSizeX, float WSizeY):Enemigos(WSizeX, WSizeY)
+Arania::Arania() : 
+	x (1000),
+	y (1000)
 {
 	activo = false;
-	getTexture().loadFromFile("Arania.png");
-	getSprite().setTexture(getTexture());
+	texture.loadFromFile("Arania.png");
+	sprite.setTexture(texture);
 }
 
 
@@ -34,24 +36,61 @@ float Arania::getY()
 	return y;
 }
 
-void Arania::Movimiento(float xPJ, float yPJ, Time frameStabilizer)
+void Arania::Movimiento(Personaje &pj, Time frameStabilizer)
 {
-	if (xPJ > x)
-		x += 200 * frameStabilizer.asSeconds();
-	else if (xPJ < x)
-		x -= 200 * frameStabilizer.asSeconds();
-	if (yPJ > y)
-		y += 200 * frameStabilizer.asSeconds();
-	else if (yPJ < y)
-		y -= 200 * frameStabilizer.asSeconds();
+	
+	if (pj.getX() > x)
+		x += 50 * frameStabilizer.asSeconds();
+	else if (pj.getX() < x)
+		x -= 50 * frameStabilizer.asSeconds();
+	if (pj.getY()> y)
+		y += 50 * frameStabilizer.asSeconds();
+	else if (pj.getY() < y)
+		y -= 50 * frameStabilizer.asSeconds();
+	sprite.setPosition(x, y);
 }
 
-void Arania::setActivo(bool resp)
+void Arania::Activando(bool resp)
 {
 	activo = resp;
+	x = 100;
+	y = 100;
 }
+
+
 
 bool Arania::getActivo()
 {
 	return activo;
+}
+
+Sprite & Arania::getSprite()
+{
+	return sprite;
+}
+
+void Arania::setSprite(Sprite _sprite)
+{
+	sprite = _sprite;
+}
+
+Texture Arania::getTexture()
+{
+	return texture;
+}
+
+bool Arania::Colision(Personaje &pj)
+{
+
+	if (sprite.getGlobalBounds().intersects(pj.getSprite().getGlobalBounds())) {
+		return false;
+		if (!music.loadFromFile("Death.ogg"))
+		{
+			return -1;
+		}
+		sound.setBuffer(music);
+		sound.setLoop(false);
+		sound.play();
+	}
+	return true;
 }

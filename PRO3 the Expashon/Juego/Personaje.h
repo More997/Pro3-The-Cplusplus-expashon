@@ -18,6 +18,8 @@ public:
 	void Movimiento(float WSizeX, float WSizeY, Time frameStabilizer);
 	float getX();
 	float getY();
+	bool getVivo();
+	void setVivo(bool resp); 
 	Sprite getSprite();
 	void setSprite(Sprite _Sprite);
 	void setX(float _X);

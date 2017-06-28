@@ -43,6 +43,16 @@ float Personaje::getY()
 	return Y;
 }
 
+bool Personaje::getVivo()
+{
+	return vivo;
+}
+
+void Personaje::setVivo(bool resp)
+{
+	vivo = resp;
+}
+
 Sprite Personaje::getSprite()
 {
 	return sprite;
