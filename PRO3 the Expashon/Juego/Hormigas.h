@@ -1,3 +1,5 @@
+#ifndef HORMIGAS_H
+#define HORMIGAS_H
 #pragma once
 #include "Enemigos.h"
 #include <stdlib.h>     /* srand, rand */
@@ -8,8 +10,9 @@ class Hormigas :
 {
 	int v1;
 public:
-	Hormigas();
+	Hormigas(); 
+	Hormigas(float WSizeX, float WSizeY);
 	void Movimiento(float WSizeX, float WSizeY, Time frameStabilizer);
 	~Hormigas();
 };
-
+#endif 

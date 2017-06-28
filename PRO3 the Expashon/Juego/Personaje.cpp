@@ -19,11 +19,11 @@ void Personaje::Movimiento(float WSizeX, float WSizeY, Time frameStabilizer)
 	{
 		Y -= 200 * frameStabilizer.asSeconds();
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::Down) && Y < WSizeY)
+	else if (Keyboard::isKeyPressed(Keyboard::Down) && Y < WSizeY-40)
 	{
 		Y += 200 * frameStabilizer.asSeconds();
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::Right) && X < WSizeX)
+	else if (Keyboard::isKeyPressed(Keyboard::Right) && X < WSizeX-40)
 	{
 		X += 200 * frameStabilizer.asSeconds();
 	}

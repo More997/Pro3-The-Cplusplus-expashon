@@ -5,14 +5,14 @@
 #include <SFML/Graphics.hpp>
 #include "Personaje.h"
 #include "Hormigas.h"
+#include "Arania.h"
 #include "SFML\Network.hpp"
 #include "../json.hpp"
 #include <string>
-#include <list>
 using namespace std;
 using namespace sf;
 using namespace nlohmann;
-
+#define cantE 5
 class Juego
 {
 private:
@@ -30,17 +30,14 @@ private:
 	bool findeljuego;
 	Texture texture;
 	Sprite sprite;
-	list<Hormigas*>hormigas;
-	list<Hormigas*>::iterator iterB = hormigas.begin();
-	list<Hormigas*>::iterator iterF = hormigas.end();
-	list<Hormigas*>::iterator iterMove;
 	float WSizeY;
 	float WSizeX;
+	int puntaje;
 public:
 	Juego();
 	~Juego();
-	int Play(RenderWindow &wndw);
-	int Menu(RenderWindow &wndw);
+	int Play(/*RenderWindow &wndw*/);
+	int Menu();
 	int Creditos();
 };
 #endif

@@ -1,3 +1,5 @@
+#ifndef ARANIA_H
+#define ARANIA_H
 #pragma once
 #include "Enemigos.h"
 class Arania :
@@ -8,7 +10,7 @@ private:
 	float y;
 	bool activo;
 public:
-	Arania();
+	Arania(float WSizeX, float WSizeY);
 	~Arania();
 	void setX(float _X);
 	float getX();
@@ -18,4 +20,4 @@ public:
 	void setActivo(bool resp);
 	bool getActivo();
 };
-
+#endif

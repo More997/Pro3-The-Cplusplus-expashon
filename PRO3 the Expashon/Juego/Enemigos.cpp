@@ -2,10 +2,10 @@
 
 
 
-Enemigos::Enemigos()
+Enemigos::Enemigos(float WSizeX, float WSizeY)
 {
-	x = numRand(600);
-	y = numRand(800);
+	x = numRand(WSizeX);
+	y = numRand(WSizeY);
 }
 
 
@@ -33,7 +33,7 @@ void Enemigos::setY(float _y)
 	y = _y;
 }
 
-Sprite Enemigos::getSprite()
+Sprite& Enemigos::getSprite()
 {
 	return sprite;
 }
@@ -46,11 +46,6 @@ void Enemigos::setSprite(Sprite _sprite)
 Texture Enemigos::getTexture()
 {
 	return texture;
-}
-
-IntRect Enemigos::getIntRect()
-{
-	return rectSourceSprite;
 }
 
 bool Enemigos::Colision(Sprite Jugador)

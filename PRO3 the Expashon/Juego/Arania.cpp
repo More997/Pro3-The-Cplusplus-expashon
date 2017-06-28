@@ -2,9 +2,11 @@
 
 
 
-Arania::Arania():
-	activo(false)
+Arania::Arania(float WSizeX, float WSizeY):Enemigos(WSizeX, WSizeY)
 {
+	activo = false;
+	getTexture().loadFromFile("Arania.png");
+	getSprite().setTexture(getTexture());
 }
 
 
@@ -36,11 +38,11 @@ void Arania::Movimiento(float xPJ, float yPJ, Time frameStabilizer)
 {
 	if (xPJ > x)
 		x += 200 * frameStabilizer.asSeconds();
-	else
+	else if (xPJ < x)
 		x -= 200 * frameStabilizer.asSeconds();
 	if (yPJ > y)
 		y += 200 * frameStabilizer.asSeconds();
-	else
+	else if (yPJ < y)
 		y -= 200 * frameStabilizer.asSeconds();
 }
 

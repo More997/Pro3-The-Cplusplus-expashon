@@ -2,13 +2,10 @@
 
 
 
-Hormigas::Hormigas()
+Hormigas::Hormigas(float WSizeX, float WSizeY) : Enemigos(WSizeX, WSizeY)
 {
 	getTexture().loadFromFile("Enemigo.png");
-	getIntRect().contains(20, 20);	
 	getSprite().setTexture(getTexture());
-	getSprite().setTextureRect(IntRect(0, 0, 20, 20));
-
 }
 
 void Hormigas::Movimiento(float WSizeX, float WSizeY, Time frameStabilizer)

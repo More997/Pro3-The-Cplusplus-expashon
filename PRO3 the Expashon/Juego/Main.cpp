@@ -5,11 +5,8 @@
 
 int main()
 {
-	float WSizeY=600;
-	float WSizeX =800;
-	RenderWindow wndw(VideoMode(WSizeX, WSizeY), "Pro the C++ Expashon");
 	Juego juego;
-	juego.Menu(wndw);
+	juego.Menu();
 	return 0;
 }
 

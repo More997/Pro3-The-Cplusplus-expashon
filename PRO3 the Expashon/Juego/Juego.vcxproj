@@ -133,6 +133,7 @@
     <ClCompile Include="Hormigas.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Monedas.cpp" />
     <ClCompile Include="Personaje.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="Enemigos.h" />
     <ClInclude Include="Hormigas.h" />
     <ClInclude Include="Juego.h" />
+    <ClInclude Include="Monedas.h" />
     <ClInclude Include="Personaje.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

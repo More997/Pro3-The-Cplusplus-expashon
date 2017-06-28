@@ -3,10 +3,9 @@
 
 
 Juego::Juego()
-:
-findeljuego(false),
-texture()
-
+	:
+	findeljuego(false),
+	texture()
 {
 	texture.loadFromFile("Tela.png");
 	sprite.setTexture(texture);
@@ -16,45 +15,30 @@ texture()
 
 Juego::~Juego()
 {
+	
 }
 
-int Juego::Play(RenderWindow &wndw)
+int Juego::Play(/*RenderWindow &wndw*/)
 {
-	
-	/*CircleShape shape(25.f);
-	RectangleShape cuadrado(Vector2f(30, 30));
-	shape.setFillColor(Color::Red);
-	cuadrado.setFillColor(Color::Green);
-	float xC = 0;
-	float yC = 0;
-	*/
-
-	
-	/*Texture texture;
-	texture.loadFromFile("PJ.png");
-	IntRect rectSourceSprite(40, 0, 40, 40);
-	Sprite sprite(texture, IntRect(0, 0, 40, 40));*/
-	
-
+	puntaje = 0;
+	float WSizeY = 600;
+	float WSizeX = 800;
+	RenderWindow wndw(VideoMode(WSizeX, WSizeY), "Pro the C++ Expashon");
 	while (wndw.isOpen()) 
 	{
 		Time frameStabilizer = clock.restart();
+		
 		while (wndw.pollEvent(evento))
 		{
-			findeljuego = true;
 			if (evento.type == Event::Closed)
 				break;
 		}
-		//elapsed = clock.getElapsedTime();
-		
-		//if (elapsed.asSeconds() == 2.0f)
-		//{
-	//	xC += 0.1f;
-		//clock.restart();
-		//}
-		
+
 		pj.Movimiento(WSizeX, WSizeY,frameStabilizer);
-	//	shape.setPosition(xC, yC);
+		if (findeljuego == true) 
+		{
+			break;
+		}
 		wndw.clear();	
 	switch (climan)
 		{
@@ -72,9 +56,6 @@ int Juego::Play(RenderWindow &wndw)
 			wndw.clear(Color::Green);
 			break;
 		}
-		//wndw.clear(Color::White);
-	/*	wndw.draw(shape);
-		wndw.draw(cuadrado);*/
 		wndw.draw(sprite);
 		wndw.draw(pj.getSprite());
 		wndw.display();
@@ -82,10 +63,9 @@ int Juego::Play(RenderWindow &wndw)
 	return 0;
 }
 
-int Juego::Menu(RenderWindow &wndw)
+int Juego::Menu()
 {
-	WSizeX = 800;
-	WSizeY = 600;
+
 	Dir.setHost("http://query.yahooapis.com");
 	Req.setUri("v1/public/yql?q=select%20item.condition.code%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Buenos%20Aires%2C%20arg%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
 	Res = Dir.sendRequest(Req);
@@ -93,7 +73,7 @@ int Juego::Menu(RenderWindow &wndw)
 	string clima = data["query"]["results"]["channel"]["item"]["condition"]["code"];
 	cout << clima << endl;
 	climan = stoi(clima);
-	if (!music.loadFromFile("bensound-goinghigher.ogg"))
+	if (!music.loadFromFile("Music.ogg"))
 	{
 		return -1;
 	}
@@ -101,9 +81,7 @@ int Juego::Menu(RenderWindow &wndw)
 	sound.setBuffer(music);
 	sound.setLoop(true);
 	sound.play();
-	while (findeljuego == false) {
-		Play(wndw);
-	}
+	Play(/*wndw*/);
 	return 0;
 }
 
