@@ -5,6 +5,7 @@
 #include "../json.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include "Weather.h"
 #include "Juego.h"
 using namespace std;
 using namespace sf;

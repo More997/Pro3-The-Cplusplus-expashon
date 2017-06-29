@@ -7,6 +7,7 @@
 #include "Hormigas.h"
 #include "Arania.h"
 #include "Monedas.h"
+#include "Weather.h"
 #include <string>
 #include <list>
 using namespace std;
@@ -28,6 +29,8 @@ private:
 	list<Hormigas*>enemigos;
 	list<Enemigos*>bombas;
 	list<Monedas*>Pickups;
+	Texture texGO;
+	Sprite spriteGO;
 public:
 	Juego();
 	~Juego();

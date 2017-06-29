@@ -4,11 +4,14 @@
 
 Juego::Juego()
 	:
-	alive(false),
-	texture()
+	alive(true),
+	texture(),
+	texGO()
 {
 	texture.loadFromFile("Tela.png");
 	sprite.setTexture(texture);
+	texGO.loadFromFile("GO.png");
+	spriteGO.setTexture(texGO);
 }
 
 
@@ -20,7 +23,9 @@ Juego::~Juego()
 
 bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, int climan)
 {
-	arania.Activando(false);
+	arania.Activando(true);
+	pj.setVivo(true);
+	alive = true;
 	puntaje = 0;
 	music.loadFromFile("Music.ogg");
 	sound.setBuffer(music);
@@ -29,7 +34,7 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 	for (int i = 0; i < cantE; i++) {
 		
 	}
-	while (wndw.isOpen() || alive != false)
+	while (alive != false)
 	{
 		
 		Time frameStabilizer = clock.restart();
@@ -47,15 +52,15 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		wndw.clear();
 		switch (climan)
 		{
-		case 30:
-		case 26:
+		case Cloudy:
+		case Cloudy2:
 			wndw.clear(Color::Color(100, 0, 255, 0));
 			break;
-		case 31:
-		case 32:
+		case Sunny:
+		case Sunny2:
 			wndw.clear(Color::Cyan);
 			break;
-		case 10:
+		case Rainy:
 			wndw.clear(Color::Magenta);
 		default:
 			wndw.clear(Color::Green);
@@ -75,6 +80,21 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		alive = pj.getVivo();
 	}
 	sound.stop();
+	wndw.clear();
+	wndw.draw(spriteGO);
+	wndw.display();
+ 	while (!(Keyboard::isKeyPressed(Keyboard::N))) 
+	{
+ 		while (wndw.pollEvent(evento))
+		{
+			if (evento.type == Event::Closed)
+			{
+				wndw.close();
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 int Juego::Creditos()

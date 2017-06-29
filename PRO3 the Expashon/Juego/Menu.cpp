@@ -3,7 +3,8 @@
 
 
 Menu::Menu():
-	texture()
+	texture(),
+	climan(-1)
 {
 	texture.loadFromFile("Menu.png");
 	sprite.setTexture(texture);
