@@ -4,8 +4,8 @@
 
 Personaje::Personaje()
 :
-X(0),
-Y(0),
+X(400),
+Y(300),
 vivo(true),
 texture()
 {
@@ -50,6 +50,13 @@ bool Personaje::getVivo()
 
 void Personaje::setVivo(bool resp)
 {
+	if (resp == false) 
+	{
+		music.loadFromFile("Death.ogg");
+		sound.setBuffer(music);
+		sound.setLoop(false);
+		sound.play();
+	}
 	vivo = resp;
 }
 

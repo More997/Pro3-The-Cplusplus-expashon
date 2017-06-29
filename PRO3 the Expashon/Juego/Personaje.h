@@ -12,7 +12,10 @@ private:
 	bool vivo;
 	Texture texture;
 	Sprite sprite;
-
+	SoundBuffer music;
+	Sound sound;
+	float WidthS;
+	float HeightS;
 public:
 	Personaje();
 	void Movimiento(float WSizeX, float WSizeY, Time frameStabilizer);

@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vld.h>
-#include "Juego.h"
+#include "Menu.h"
 
 
 int main()
 {
-	Juego juego;
-	juego.Menu();
+	Menu menu;
+	menu.Start();
 	return 0;
 }
 

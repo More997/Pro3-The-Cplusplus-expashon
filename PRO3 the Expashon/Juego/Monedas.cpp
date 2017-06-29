@@ -51,7 +51,9 @@ Texture Monedas::getTexture()
 
 void Monedas::Colision(Sprite Jugador, int & puntaje)
 {
-	
+	if (sprite.getGlobalBounds().intersects(Jugador.getGlobalBounds())) {
+		puntaje += puntos;
+	}
 }
 
 int Monedas::numRand(int pos)

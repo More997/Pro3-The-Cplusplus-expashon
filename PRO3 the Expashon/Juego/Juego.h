@@ -6,39 +6,32 @@
 #include "Personaje.h"
 #include "Hormigas.h"
 #include "Arania.h"
-#include "SFML\Network.hpp"
-#include "../json.hpp"
+#include "Monedas.h"
 #include <string>
+#include <list>
 using namespace std;
 using namespace sf;
-using namespace nlohmann;
 #define cantE 5
 class Juego
 {
 private:
-	Event evento;
 	Personaje pj;
-	Http::Request Req;
-	Http::Response Res;
-	Http Dir;
-	json data;
-	SoundBuffer music;
-	Sound sound;
 	Clock clock;
 	bool Endgame;
-	int climan;
-	bool findeljuego;
+	bool alive;
 	Texture texture;
 	Sprite sprite;
-	float WSizeY;
-	float WSizeX;
+	SoundBuffer music;
+	Sound sound;
 	int puntaje;
 	Arania arania;
+	list<Hormigas*>enemigos;
+	list<Enemigos*>bombas;
+	list<Monedas*>Pickups;
 public:
 	Juego();
 	~Juego();
-	int Play(/*RenderWindow &wndw*/);
-	int Menu();
+	bool Play(RenderWindow &wndw, Event &evento, float WSizeX, float WSizeY, int climan);
 	int Creditos();
 };
 #endif

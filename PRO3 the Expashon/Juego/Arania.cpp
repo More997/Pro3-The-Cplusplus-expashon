@@ -3,8 +3,8 @@
 
 
 Arania::Arania() : 
-	x (1000),
-	y (1000)
+	x (-1000),
+	y (-1000)
 {
 	activo = false;
 	texture.loadFromFile("Arania.png");
@@ -79,18 +79,4 @@ Texture Arania::getTexture()
 	return texture;
 }
 
-bool Arania::Colision(Personaje &pj)
-{
 
-	if (sprite.getGlobalBounds().intersects(pj.getSprite().getGlobalBounds())) {
-		return false;
-		if (!music.loadFromFile("Death.ogg"))
-		{
-			return -1;
-		}
-		sound.setBuffer(music);
-		sound.setLoop(false);
-		sound.play();
-	}
-	return true;
-}

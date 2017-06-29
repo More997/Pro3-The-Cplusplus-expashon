@@ -48,14 +48,6 @@ Texture Enemigos::getTexture()
 	return texture;
 }
 
-bool Enemigos::Colision(Sprite Jugador)
-{
-	if (sprite.getGlobalBounds().intersects(Jugador.getGlobalBounds())) {
-		return true;
-	}
-		return false;
-}
-
 int Enemigos::numRand(int pos)
 {
 	srand(time(NULL));

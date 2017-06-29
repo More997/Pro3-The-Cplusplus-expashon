@@ -13,8 +13,7 @@ private:
 	bool activo;
 	Texture texture;
 	Sprite sprite;
-	SoundBuffer music;
-	Sound sound;
+
 public:
 	Arania();
 	~Arania();
@@ -28,6 +27,5 @@ public:
 	Sprite& getSprite();
 	void setSprite(Sprite _sprite);
 	Texture getTexture();
-	bool Colision(Personaje &pj);
 };
 #endif

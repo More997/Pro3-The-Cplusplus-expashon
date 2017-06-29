@@ -11,6 +11,7 @@ private:
 	float y;
 	Texture texture;
 	Sprite sprite;
+	bool fin;
 public:
 	Enemigos(float WSizeX, float WSizeY);
 	~Enemigos();
@@ -21,8 +22,9 @@ public:
 	Sprite& getSprite();
 	void setSprite(Sprite _sprite);
 	Texture getTexture();
-	bool Colision(Sprite Jugador);
 	int numRand(int pos); 
+	bool getFin();
+	void setFin(bool resp);
 
 	
 };
