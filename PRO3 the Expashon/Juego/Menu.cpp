@@ -35,12 +35,17 @@ void Menu::Start()
 	{
 		wndw.clear();
 		wndw.draw(sprite);
-	
 		wndw.display();
 		if (Keyboard::isKeyPressed(Keyboard::Space))
 		{
 			sound.stop();
 			cerrar = game.Play(wndw, evento, WSizeX, WSizeY, climan);
+			sound.play();
+		}
+		if (Keyboard::isKeyPressed(Keyboard::C))
+		{
+			sound.stop();
+			cerrar = credits.Run(wndw, evento);
 			sound.play();
 		}
 		if (cerrar == true)

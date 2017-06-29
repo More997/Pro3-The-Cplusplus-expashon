@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arania.cpp" />
+    <ClCompile Include="Creditos.cpp" />
     <ClCompile Include="Enemigos.cpp" />
     <ClCompile Include="Hormigas.cpp" />
     <ClCompile Include="Juego.cpp" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arania.h" />
+    <ClInclude Include="Creditos.h" />
     <ClInclude Include="Enemigos.h" />
     <ClInclude Include="Hormigas.h" />
     <ClInclude Include="Juego.h" />

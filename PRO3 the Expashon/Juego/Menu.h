@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include "Weather.h"
 #include "Juego.h"
+#include "Creditos.h"
 using namespace std;
 using namespace sf;
 using namespace nlohmann;
@@ -27,6 +28,7 @@ private:
 	int cerrar;
 	Texture texture;
 	Sprite sprite;
+	Creditos credits;
 public:
 	Menu();
 	~Menu();

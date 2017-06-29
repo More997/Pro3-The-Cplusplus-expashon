@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Personaje.h"
-using namespace sf;
 class Arania 
 {
 private:
@@ -13,7 +12,8 @@ private:
 	bool activo;
 	Texture texture;
 	Sprite sprite;
-
+	SoundBuffer music;
+	Sound sound;
 public:
 	Arania();
 	~Arania();
