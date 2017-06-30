@@ -5,12 +5,12 @@
 Aranitas::Aranitas() : Enemigos()
 
 {
-	v1 = 0;
+	//v1 = 0;
 	texture.loadFromFile("Assets/Enemigos.png");
 	sprite.setTexture(texture);
 }
 
-void Aranitas::Movimiento(float WSizeX, float WSizeY, Time frameStabilizer)
+/*void Aranitas::Movimiento(float WSizeX, float WSizeY, Time frameStabilizer)
 {
 	v1 = rand()%(0-4);
 	switch (v1) {
@@ -36,7 +36,7 @@ void Aranitas::Movimiento(float WSizeX, float WSizeY, Time frameStabilizer)
 	sprite.setPosition(getX(), getY());
 
 }
-
+*/
 
 Aranitas::~Aranitas()
 {

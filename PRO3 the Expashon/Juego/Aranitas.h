@@ -9,12 +9,12 @@ class Aranitas :
 	public Enemigos
 {
 private:
-	int v1;
+//	int v1;
 	Texture texture;
 	Sprite sprite;
 public:
 	Aranitas(); 
-	void Movimiento(float WSizeX, float WSizeY, Time frameStabilizer);
+	//void Movimiento(float WSizeX, float WSizeY, Time frameStabilizer);
 	~Aranitas();
 	Sprite& getSprite();
 	void Draw(RenderWindow &wndw);

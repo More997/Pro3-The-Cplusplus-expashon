@@ -30,13 +30,12 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 	
 	//Para cuando vuelvo a jugar el juego no se quede los datos de la jugada anterior
 	Arania* arania = new Arania();
-	arania->Activando(false);
 	pj.setVivo(true);
 	alive = true;
 	puntaje = 0;
 	
 
-	music.loadFromFile("Music.ogg");
+	music.loadFromFile("Assets/Music.ogg");
 	sound.setBuffer(music);
 	sound.play();
 	sound.setLoop(true);
@@ -55,7 +54,7 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 	pickUpIterB = pickUpList.begin();
 	pickUpIterF = pickUpList.end();
 	pickUpIterMove = pickUpIterB;
-
+	arania->Activando();
 	while (alive != false)
 	{
 		
@@ -81,16 +80,16 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 				return true;
 			}
 		}
-		if (arania->getActivo() == true)
-			arania->Movimiento(pj, frameStabilizer);
-		for (iterMove = iterB; iterMove != iterF; iterMove++)
+
+		arania->Movimiento(pj, frameStabilizer);
+		/*for (iterMove = iterB; iterMove != iterF; iterMove++)
 		{
 			(*iterMove)->Movimiento(WSizeX,WSizeY,frameStabilizer);
 			
 		}
 		iterB = enemigosList.begin();
 		iterF = enemigosList.end();
-		iterMove = iterB;
+		iterMove = iterB;*/
 		pj.Movimiento(WSizeX, WSizeY, frameStabilizer);
 		wndw.clear();
 		switch (climan)
@@ -115,13 +114,10 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		}
 		wndw.draw(sprite);
 		wndw.draw(pj.getSprite());
-		if (arania->getActivo() == true)
+		wndw.draw(arania->getSprite());
+		if (arania->getSprite().getGlobalBounds().intersects(pj.getSprite().getGlobalBounds())) 
 		{
-			wndw.draw(arania->getSprite());
-			if (arania->getSprite().getGlobalBounds().intersects(pj.getSprite().getGlobalBounds())) 
-			{
-				pj.setVivo(false);
-			}
+			pj.setVivo(false);
 		}
 
 		for (iterMove = iterB; iterMove != iterF; iterMove++)
@@ -166,17 +162,17 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		wndw.draw(puntajeTex);
 		wndw.display();
 		alive = pj.getVivo();
-		if (puntaje == puntosArania)
-		{
-			arania->Activando(true);
-		}
 	}
 	sound.stop();
 	wndw.clear();
 	wndw.draw(spriteGO);
+	puntajeTex.setPosition(0, 0);
+	puntajeTex.setFillColor(Color::Green);
+	puntajeTex.setString(L"Press N to go back");
+	wndw.draw(puntajeTex);
 	wndw.display();
  	while (!(Keyboard::isKeyPressed(Keyboard::N))) 
-	{
+	{		
  		while (wndw.pollEvent(evento))
 		{
 			if (evento.type == Event::Closed)

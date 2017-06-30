@@ -9,7 +9,6 @@ class Arania
 private:
 	float x;
 	float y;
-	bool activo;
 	Texture texture;
 	Sprite sprite;
 	SoundBuffer music;
@@ -22,8 +21,7 @@ public:
 	void setY(float _Y);
 	float getY();
 	void Movimiento(Personaje &pj, Time frameStabilizer);
-	void Activando(bool resp);
-	bool getActivo();
+	void Activando();
 	Sprite& getSprite();
 	void setSprite(Sprite _sprite);
 	Texture getTexture();

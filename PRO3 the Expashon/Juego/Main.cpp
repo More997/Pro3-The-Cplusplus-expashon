@@ -1,7 +1,7 @@
 #include <iostream>
 #if DEBUG
 #include <vld.h>
-#else 
+#else
 #include <Windows.h>
 #endif
 #include "Menu.h"

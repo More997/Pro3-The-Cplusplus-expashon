@@ -6,7 +6,6 @@ Arania::Arania() :
 	x (-1000),
 	y (-1000)
 {
-	activo = false;
 	texture.loadFromFile("Assets/Arania.png");
 	sprite.setTexture(texture);
 }
@@ -50,26 +49,16 @@ void Arania::Movimiento(Personaje &pj, Time frameStabilizer)
 	sprite.setPosition(x, y);
 }
 
-void Arania::Activando(bool resp)
+void Arania::Activando()
 {
-	if (resp == true)
-	{
-		music.loadFromFile("Assets/Arania.wav");
-		sound.setBuffer(music);
-		sound.play();
-		sound.setLoop(false);
-	}
-	activo = resp;
-	x = 0;
-	y = 0;
+	music.loadFromFile("Assets/Arania.wav");
+	sound.setBuffer(music);
+	sound.play();
+	sound.setLoop(false);
 }
 
 
 
-bool Arania::getActivo()
-{
-	return activo;
-}
 
 Sprite & Arania::getSprite()
 {
