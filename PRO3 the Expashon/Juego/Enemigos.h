@@ -1,7 +1,6 @@
 #ifndef ENEMIGO_H
 #define ENEMIGO_H
 #pragma once
-using namespace sf;
 class Enemigos
 {
 private:

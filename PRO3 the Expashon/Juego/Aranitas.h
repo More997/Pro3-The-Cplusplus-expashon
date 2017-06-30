@@ -2,8 +2,7 @@
 #define ARANITAS_H
 #pragma once
 #include "Enemigos.h"
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
+#include "SFML\Graphics.hpp"
 using namespace sf;
 class Aranitas :
 	public Enemigos

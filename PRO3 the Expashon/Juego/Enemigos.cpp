@@ -1,6 +1,6 @@
 #include "Enemigos.h"
-
-
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>   
 
 Enemigos::Enemigos():
 x(0),

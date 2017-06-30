@@ -87,7 +87,8 @@ copy "$(SolutionDir)SFML-2.4.2\bin\sfml-system-d-2.dll" "$(SolutionDir)Debug"
 copy "$(SolutionDir)SFML-2.4.2\bin\sfml-window-d-2.dll" "$(SolutionDir)Debug"
 copy "$(SolutionDir)SFML-2.4.2\bin\sfml-graphics-d-2.dll" "$(SolutionDir)Debug"
 copy "$(SolutionDir)SFML-2.4.2\bin\sfml-audio-d-2.dll" "$(SolutionDir)Debug"
-copy "$(SolutionDir)Juego\Assets\*" "$(SolutionDir)Debug"
+copy "$(SolutionDir)SFML-2.4.2\bin\sfml-network-d-2.dll" "$(SolutionDir)Debug"
+copy "$(SolutionDir)Juego\Assets\*" "$(SolutionDir)Debug\Assets"
 copy "$(SolutionDir)Juego\OpAl\*" "$(SolutionDir)Debug"
 copy "$(SolutionDir)VLD\bin\Win32\*" "$(SolutionDir)Debug"</Command>
     </PostBuildEvent>
@@ -124,7 +125,7 @@ copy "$(SolutionDir)VLD\bin\Win32\*" "$(SolutionDir)Debug"</Command>
     <PostBuildEvent>
       <Command>copy "$(SolutionDir)SFML-2.4.2\bin\openal32.dll" "$(SolutionDir)Release"
 copy "$(SolutionDir)OpenAl32.dll" "$(SolutionDir)Release"
-copy "$(SolutionDir)Juego\Assets\*" "$(SolutionDir)Release"
+copy "$(SolutionDir)Juego\Assets\*" "$(SolutionDir)Release\Assets"
 
 </Command>
     </PostBuildEvent>
