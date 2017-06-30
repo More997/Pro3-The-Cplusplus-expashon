@@ -25,7 +25,7 @@ Juego::~Juego()
 {
 }
 
-bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, int climan)
+bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, int climan, int &highScore, bool &supHS)
 {
 	
 	//Para cuando vuelvo a jugar el juego no se quede los datos de la jugada anterior
@@ -211,6 +211,11 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		Monedas* Del2 = pickUpList.back();
 		pickUpList.pop_back();
 		delete Del2;
+	}
+	if (puntaje > highScore)
+	{
+		highScore = puntaje;
+		supHS = true;
 	}
 	return false;
 	

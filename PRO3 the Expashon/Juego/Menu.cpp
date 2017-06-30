@@ -4,7 +4,10 @@
 
 Menu::Menu():
 	texture(),
-	climan(-1)
+	climan(-1),
+	HighScore (0),
+	detectHS ("0"),
+	supHS(false)
 {
 	texture.loadFromFile("Menu.png");
 	sprite.setTexture(texture);
@@ -22,6 +25,18 @@ Menu::~Menu()
 
 void Menu::Start()
 {
+	HS.open("puntos.txt");
+	if (!HS) {
+		ofstream create;
+		create.open("puntos.txt");
+		create.close();
+		HS.open("puntos.txt");
+	}
+	if (HS.is_open()) {
+		HS >> detectHS;
+		HighScore = atoi(detectHS.c_str());
+	}
+	HS.close();
 	float WSizeY = 600;
 	float WSizeX = 800;
 	RenderWindow wndw(VideoMode(WSizeX, WSizeY), "The Pro C++ Expashon");
@@ -64,12 +79,24 @@ void Menu::Start()
 			break;
 		}	
 		wndw.draw(TocaSpace);
+		TocaSpace.setPosition(600, 0);
+		TocaSpace.setString("High Score:");
+		wndw.draw(TocaSpace);
+		TocaSpace.setPosition(700, 0);
+		TocaSpace.setString(to_string(HighScore));
+		wndw.draw(TocaSpace);
 		wndw.display();
 		if (Keyboard::isKeyPressed(Keyboard::Space))
 		{
 			sound.stop();
-			cerrar = game.Play(wndw, evento, WSizeX, WSizeY, climan);
+			cerrar = game.Play(wndw, evento, WSizeX, WSizeY, climan,HighScore,supHS);
 			sound.play();
+			if (supHS == true) {
+				HS.open("puntos.txt");
+				HS << HighScore;
+				HS.close();
+				supHS = false;
+			}
 		}
 		if (Keyboard::isKeyPressed(Keyboard::C))
 		{

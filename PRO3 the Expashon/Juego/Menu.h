@@ -1,6 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 #pragma once
+#include <fstream>
 #include "SFML\Network.hpp"
 #include "../json.hpp"
 #include <SFML/Audio.hpp>
@@ -31,6 +32,10 @@ private:
 	Creditos credits;
 	Font font;
 	Text TocaSpace;
+	int HighScore;
+	string detectHS;
+	fstream HS;
+	bool supHS;
 public:
 	Menu();
 	~Menu();

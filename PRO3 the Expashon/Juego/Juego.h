@@ -44,7 +44,7 @@ private:
 public:
 	Juego();
 	~Juego();
-	bool Play(RenderWindow &wndw, Event &evento, float WSizeX, float WSizeY, int climan);
+	bool Play(RenderWindow &wndw, Event &evento, float WSizeX, float WSizeY, int climan, int &highScore, bool &supHS);
 };
 #endif
 
