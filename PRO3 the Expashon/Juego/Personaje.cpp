@@ -9,7 +9,7 @@ Y(300),
 vivo(true),
 texture()
 {
-	texture.loadFromFile("PJ.png");
+	texture.loadFromFile("Assets/PJ.png");
 	sprite.setTexture(texture);
 }
 
@@ -52,7 +52,7 @@ void Personaje::setVivo(bool resp)
 {
 	if (resp == false) 
 	{
-		music.loadFromFile("Death.ogg");
+		music.loadFromFile("Assets/Death.ogg");
 		sound.setBuffer(music);
 		sound.setLoop(false);
 		sound.play();

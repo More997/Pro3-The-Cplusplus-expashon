@@ -82,8 +82,14 @@
       <AdditionalDependencies>vld.lib;winmm.lib;sfml-system-d.lib;ws2_32.lib;sfml-network-d.lib;sfml-audio-d.lib;sfml-graphics-d.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-d.lib;winmm.lib;gdi32.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy $(SolutionDir)SFML-2.4.2\bin\openal32.dll $(SolutionDir)Release
+copy $(SolutionDir)SFML-2.4.2\bin\sfml-system-d-2.dll $(SolutionDir)Debug
+copy $(SolutionDir)SFML-2.4.2\bin\sfml-window-d-2.dll $(SolutionDir)Debug
+copy $(SolutionDir)SFML-2.4.2\bin\sfml-graphics-d-2.dll $(SolutionDir)Debug
+copy $(SolutionDir)SFML-2.4.2\bin\sfml-audio-d-2.dll $(SolutionDir)Debug
+copy $(SolutionDir)SFML-2.4.2\Juego\Assets\* $(SolutionDir)Debug\Assets
+copy $(SolutionDir)SFML-2.4.2\VLD\bin\Win32\* $(SolutionDir)Debug
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -119,7 +125,8 @@
 copy $(SolutionDir)SFML-2.4.2\bin\sfml-system-2.dll $(SolutionDir)Release
 copy $(SolutionDir)SFML-2.4.2\bin\sfml-window-2.dll $(SolutionDir)Release
 copy $(SolutionDir)SFML-2.4.2\bin\sfml-graphics-2.dll $(SolutionDir)Release
-copy $(SolutionDir)SFML-2.4.2\bin\sfml-audio-2.dll $(SolutionDir)Release</Command>
+copy $(SolutionDir)SFML-2.4.2\bin\sfml-audio-2.dll $(SolutionDir)Release
+copy $(SolutionDir)SFML-2.4.2\Juego\Assets\* $(SolutionDir)Release</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,6 +161,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\sfml-audio-2.dll $(SolutionDir)Release</Comman
     <ClInclude Include="Creditos.h" />
     <ClInclude Include="Enemigos.h" />
     <ClInclude Include="Aranitas.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Monedas.h" />

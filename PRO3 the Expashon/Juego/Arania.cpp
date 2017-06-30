@@ -7,7 +7,7 @@ Arania::Arania() :
 	y (-1000)
 {
 	activo = false;
-	texture.loadFromFile("Arania.png");
+	texture.loadFromFile("Assets/Arania.png");
 	sprite.setTexture(texture);
 }
 
@@ -54,7 +54,7 @@ void Arania::Activando(bool resp)
 {
 	if (resp == true)
 	{
-		music.loadFromFile("Arania.wav");
+		music.loadFromFile("Assets/Arania.wav");
 		sound.setBuffer(music);
 		sound.play();
 		sound.setLoop(false);

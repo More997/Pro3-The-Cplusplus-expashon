@@ -5,9 +5,9 @@
 Creditos::Creditos():
 	texture()
 {
-	texture.loadFromFile("Bichito.png");
+	texture.loadFromFile("Assets/Bichito.png");
 	sprite.setTexture(texture);
-	font.loadFromFile("Crimson-Bold.ttf");
+	font.loadFromFile("Assets/Crimson-Bold.ttf");
 	credits.setFont(font);
 	credits.setFillColor(Color::Black);
 }
@@ -19,7 +19,7 @@ Creditos::~Creditos()
 
 bool Creditos::Run(RenderWindow & wndw, Event & evento)
 {
-	music.loadFromFile("Creditos.wav");
+	music.loadFromFile("Assets/Creditos.wav");
 	sound.setBuffer(music);
 	sound.setLoop(true);
 	sound.play();

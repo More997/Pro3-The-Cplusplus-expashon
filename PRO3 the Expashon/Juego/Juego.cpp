@@ -9,11 +9,11 @@ Juego::Juego()
 	texGO(),
 	puntosArania(100)
 {
-	texture.loadFromFile("Tela.png");
+	texture.loadFromFile("Assets/Tela.png");
 	sprite.setTexture(texture);
-	texGO.loadFromFile("GO.png");
+	texGO.loadFromFile("Assets/GO.png");
 	spriteGO.setTexture(texGO);
-	font.loadFromFile("Crimson-Bold.ttf");
+	font.loadFromFile("Assets/Crimson-Bold.ttf");
 	puntajeTex.setFont(font);
 	puntajeTex.setCharacterSize(15);
 	

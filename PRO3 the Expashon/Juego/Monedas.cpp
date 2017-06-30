@@ -5,7 +5,7 @@
 Monedas::Monedas() :
 	puntos(10)
 {
-	texture.loadFromFile("Puntos.png");
+	texture.loadFromFile("Assets/Puntos.png");
 	sprite.setTexture(texture);
 	x = rand() % (0 - 800);
 	y = rand() % (0 - 600);

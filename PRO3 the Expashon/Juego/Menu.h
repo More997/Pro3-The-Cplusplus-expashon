@@ -3,7 +3,7 @@
 #pragma once
 #include <fstream>
 #include "SFML\Network.hpp"
-#include "../json.hpp"
+#include "json.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Weather.h"

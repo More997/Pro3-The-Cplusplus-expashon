@@ -9,9 +9,9 @@ Menu::Menu():
 	detectHS ("0"),
 	supHS(false)
 {
-	texture.loadFromFile("Menu.png");
+	texture.loadFromFile("Assets/Menu.png");
 	sprite.setTexture(texture);
-	font.loadFromFile("Crimson-Bold.ttf");
+	font.loadFromFile("Assets/Crimson-Bold.ttf");
 	TocaSpace.setFont(font);
 	TocaSpace.setCharacterSize(15);
 	TocaSpace.setFillColor(Color::White);
@@ -25,12 +25,12 @@ Menu::~Menu()
 
 void Menu::Start()
 {
-	HS.open("puntos.txt");
+	HS.open("Assets/puntos.txt");
 	if (!HS) {
 		ofstream create;
-		create.open("puntos.txt");
+		create.open("Assets/puntos.txt");
 		create.close();
-		HS.open("puntos.txt");
+		HS.open("Assets/puntos.txt");
 	}
 	if (HS.is_open()) {
 		HS >> detectHS;
@@ -47,7 +47,7 @@ void Menu::Start()
 	string clima = data["query"]["results"]["channel"]["item"]["condition"]["code"];
 	cout << clima << endl;
 	climan = stoi(clima);
-	music.loadFromFile("Menu.wav");
+	music.loadFromFile("Assets/Menu.wav");
 	sound.setBuffer(music);
 	sound.setLoop(true);
 	sound.play();
@@ -92,7 +92,7 @@ void Menu::Start()
 			cerrar = game.Play(wndw, evento, WSizeX, WSizeY, climan,HighScore,supHS);
 			sound.play();
 			if (supHS == true) {
-				HS.open("puntos.txt");
+				HS.open("Assets/puntos.txt");
 				HS << HighScore;
 				HS.close();
 				supHS = false;
