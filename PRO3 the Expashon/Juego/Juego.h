@@ -12,20 +12,18 @@
 #include <list>
 using namespace std;
 using namespace sf;
-#define cantE 5
+#define cantE 4
 class Juego
 {
 private:
 	Personaje pj;
 	Clock clock;
-	bool Endgame;
 	bool alive;
 	Texture texture;
 	Sprite sprite;
 	SoundBuffer music;
 	Sound sound;
 	int puntaje;
-	Arania arania;
 	
 	list<Monedas*>pickUpList;
 	list<Monedas*>::iterator pickUpIterB = pickUpList.begin();
@@ -42,11 +40,11 @@ private:
 	Font font;
 	Text puntajeTex;
 	string puntos;
+	int puntosArania;
 public:
 	Juego();
 	~Juego();
 	bool Play(RenderWindow &wndw, Event &evento, float WSizeX, float WSizeY, int climan);
-	int Creditos();
 };
 #endif
 

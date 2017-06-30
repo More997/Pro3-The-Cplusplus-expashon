@@ -6,7 +6,8 @@ Juego::Juego()
 	:
 	alive(true),
 	texture(),
-	texGO()
+	texGO(),
+	puntosArania(100)
 {
 	texture.loadFromFile("Tela.png");
 	sprite.setTexture(texture);
@@ -14,8 +15,8 @@ Juego::Juego()
 	spriteGO.setTexture(texGO);
 	font.loadFromFile("Crimson-Bold.ttf");
 	puntajeTex.setFont(font);
-	puntajeTex.setCharacterSize(10);
-	puntajeTex.setFillColor(Color::White);
+	puntajeTex.setCharacterSize(15);
+	
 }
 
 
@@ -28,7 +29,8 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 {
 	
 	//Para cuando vuelvo a jugar el juego no se quede los datos de la jugada anterior
-	arania.Activando(false);
+	Arania* arania = new Arania();
+	arania->Activando(false);
 	pj.setVivo(true);
 	alive = true;
 	puntaje = 0;
@@ -74,12 +76,13 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 					pickUpList.pop_back();
 					delete Del2;
 				}
+				delete arania;
 				wndw.close();
 				return true;
 			}
 		}
-		if (arania.getActivo() == true)
-			arania.Movimiento(pj, frameStabilizer);
+		if (arania->getActivo() == true)
+			arania->Movimiento(pj, frameStabilizer);
 		for (iterMove = iterB; iterMove != iterF; iterMove++)
 		{
 			(*iterMove)->Movimiento(WSizeX,WSizeY,frameStabilizer);
@@ -95,23 +98,27 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		case Cloudy:
 		case Cloudy2:
 			wndw.clear(Color::Color(100, 0, 255, 0));
+			puntajeTex.setFillColor(Color::Yellow);
 			break;
 		case Sunny:
 		case Sunny2:
 			wndw.clear(Color::Cyan);
+			puntajeTex.setFillColor(Color::Black);
 			break;
 		case Rainy:
 			wndw.clear(Color::Magenta);
+			puntajeTex.setFillColor(Color::Blue);
 		default:
 			wndw.clear(Color::Green);
+			puntajeTex.setFillColor(Color::Red);
 			break;
 		}
 		wndw.draw(sprite);
 		wndw.draw(pj.getSprite());
-		if (arania.getActivo() == true)
+		if (arania->getActivo() == true)
 		{
-			wndw.draw(arania.getSprite());
-			if (arania.getSprite().getGlobalBounds().intersects(pj.getSprite().getGlobalBounds())) 
+			wndw.draw(arania->getSprite());
+			if (arania->getSprite().getGlobalBounds().intersects(pj.getSprite().getGlobalBounds())) 
 			{
 				pj.setVivo(false);
 			}
@@ -126,7 +133,7 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		iterF = enemigosList.end();
 		iterMove = iterB;
 
-		for (int i = 0; i < cantE; i++)
+		for (pickUpIterMove = pickUpIterB; pickUpIterMove != pickUpIterF; pickUpIterMove++)
 		{
 			if ((*pickUpIterMove)->getSprite().getGlobalBounds().intersects(pj.getSprite().getGlobalBounds()))
 				(*pickUpIterMove)->Colision(puntaje);
@@ -143,8 +150,26 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		iterB = enemigosList.begin();
 		iterF = enemigosList.end();
 		iterMove = iterB;
+		for (pickUpIterMove = pickUpIterB; pickUpIterMove != pickUpIterF; pickUpIterMove++)
+		{
+			wndw.draw((*pickUpIterMove)->getSprite());
+		}
+		pickUpIterB = pickUpList.begin();
+		pickUpIterF = pickUpList.end();
+		pickUpIterMove = pickUpIterB;
+		puntajeTex.setPosition(0, 0);
+		puntajeTex.setString(L"Puntos:");
+		wndw.draw(puntajeTex);
+		puntajeTex.setPosition(55, 0);
+		puntos = to_string(puntaje);
+		puntajeTex.setString(puntos);
+		wndw.draw(puntajeTex);
 		wndw.display();
 		alive = pj.getVivo();
+		if (puntaje == puntosArania)
+		{
+			arania->Activando(true);
+		}
 	}
 	sound.stop();
 	wndw.clear();
@@ -168,6 +193,7 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 					pickUpList.pop_back();
 					delete Del2;
 				}
+				delete arania;
 				wndw.close();
 				return true;
 			}
@@ -179,6 +205,7 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 		enemigosList.pop_back();
 		delete Del;
 	}
+	delete arania;
 	while (pickUpList.empty() == false)
 	{
 		Monedas* Del2 = pickUpList.back();
@@ -189,7 +216,3 @@ bool Juego::Play(RenderWindow &wndw,Event &evento, float WSizeX, float WSizeY, i
 	
 }
 
-int Juego::Creditos()
-{
-	return 0;
-}

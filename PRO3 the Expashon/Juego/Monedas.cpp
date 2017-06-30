@@ -9,6 +9,7 @@ Monedas::Monedas() :
 	sprite.setTexture(texture);
 	x = rand() % (0 - 800);
 	y = rand() % (0 - 600);
+	sprite.setPosition(x, y);
 }
 
 
@@ -56,6 +57,7 @@ void Monedas::Colision(int & puntaje)
 	x = rand() % (0 - 800);
 	y = rand() % (0 - 600);
 	puntaje += puntos;
+	sprite.setPosition(x, y);
 
 }
 
