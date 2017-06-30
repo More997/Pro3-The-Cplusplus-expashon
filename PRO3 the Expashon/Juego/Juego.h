@@ -4,7 +4,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Personaje.h"
-#include "Hormigas.h"
+#include "Aranitas.h"
 #include "Arania.h"
 #include "Monedas.h"
 #include "Weather.h"
@@ -26,11 +26,22 @@ private:
 	Sound sound;
 	int puntaje;
 	Arania arania;
-	list<Hormigas*>enemigos;
-	list<Enemigos*>bombas;
-	list<Monedas*>Pickups;
+	
+	list<Monedas*>pickUpList;
+	list<Monedas*>::iterator pickUpIterB = pickUpList.begin();
+	list<Monedas*>::iterator pickUpIterF = pickUpList.end();
+	list<Monedas*>::iterator pickUpIterMove;
+
+	list<Aranitas*>enemigosList;
+	list<Aranitas*>::iterator iterB = enemigosList.begin();
+	list<Aranitas*>::iterator iterF = enemigosList.end();
+	list<Aranitas*>::iterator iterMove;
+
 	Texture texGO;
 	Sprite spriteGO;
+	Font font;
+	Text puntajeTex;
+	string puntos;
 public:
 	Juego();
 	~Juego();

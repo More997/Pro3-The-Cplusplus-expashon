@@ -52,10 +52,13 @@ void Arania::Movimiento(Personaje &pj, Time frameStabilizer)
 
 void Arania::Activando(bool resp)
 {
-	music.loadFromFile("Arania.wav");
-	sound.setBuffer(music);
-	sound.play();
-	sound.setLoop(false);
+	if (resp == true)
+	{
+		music.loadFromFile("Arania.wav");
+		sound.setBuffer(music);
+		sound.play();
+		sound.setLoop(false);
+	}
 	activo = resp;
 	x = 0;
 	y = 0;

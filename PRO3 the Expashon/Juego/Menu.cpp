@@ -8,6 +8,11 @@ Menu::Menu():
 {
 	texture.loadFromFile("Menu.png");
 	sprite.setTexture(texture);
+	font.loadFromFile("Crimson-Bold.ttf");
+	TocaSpace.setFont(font);
+	TocaSpace.setCharacterSize(15);
+	TocaSpace.setFillColor(Color::White);
+	
 }
 
 
@@ -35,6 +40,30 @@ void Menu::Start()
 	{
 		wndw.clear();
 		wndw.draw(sprite);
+		TocaSpace.setPosition(200, 150);
+		TocaSpace.setString(L"PRESS SPACE TO START");
+		wndw.draw(TocaSpace);
+		TocaSpace.setPosition(400, 150);
+		TocaSpace.setString(L"PRESS C TO SEE THE CREDITS");
+		wndw.draw(TocaSpace);
+		TocaSpace.setPosition(0, 0);
+		switch (climan)
+		{
+		case Cloudy:
+		case Cloudy2:
+			TocaSpace.setString("The Weather today is Cloudy");
+			break;
+		case Sunny:
+		case Sunny2:
+			TocaSpace.setString("The Weather today is Sunny");
+			break;
+		case Rainy:
+			TocaSpace.setString("The Weather today is Rainy");
+		default:
+			TocaSpace.setString("Sorry, but the Weather today is a Mystery");
+			break;
+		}	
+		wndw.draw(TocaSpace);
 		wndw.display();
 		if (Keyboard::isKeyPressed(Keyboard::Space))
 		{

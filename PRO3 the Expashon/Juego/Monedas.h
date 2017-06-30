@@ -7,7 +7,6 @@ class Monedas
 {
 private:
 	float x;
-	int num;
 	float y;
 	int puntos;
 	Texture texture;
@@ -22,8 +21,7 @@ public:
 	Sprite getSprite();
 	void setSprite(Sprite _sprite);
 	Texture getTexture();
-	void Colision(Sprite Jugador, int &puntaje);
-	int numRand(int pos);
+	void Colision(int &puntaje);
 };
 #endif
 

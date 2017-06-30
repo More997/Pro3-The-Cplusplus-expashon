@@ -2,10 +2,12 @@
 
 
 
-Enemigos::Enemigos(float WSizeX, float WSizeY)
+Enemigos::Enemigos():
+x(0),
+y(0)
 {
-	x = numRand(WSizeX);
-	y = numRand(WSizeY);
+	x = rand()% (0-600);
+	y = rand()% (0-600);
 }
 
 
@@ -33,24 +35,4 @@ void Enemigos::setY(float _y)
 	y = _y;
 }
 
-Sprite& Enemigos::getSprite()
-{
-	return sprite;
-}
 
-void Enemigos::setSprite(Sprite _sprite)
-{
-	sprite = _sprite;
-}
-
-Texture Enemigos::getTexture()
-{
-	return texture;
-}
-
-int Enemigos::numRand(int pos)
-{
-	srand(time(NULL));
-	num = rand() % pos;
-	return num;
-}

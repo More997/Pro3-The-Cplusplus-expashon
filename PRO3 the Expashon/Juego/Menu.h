@@ -29,6 +29,8 @@ private:
 	Texture texture;
 	Sprite sprite;
 	Creditos credits;
+	Font font;
+	Text TocaSpace;
 public:
 	Menu();
 	~Menu();

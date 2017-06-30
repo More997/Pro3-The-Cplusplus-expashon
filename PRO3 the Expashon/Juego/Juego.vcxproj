@@ -131,7 +131,7 @@
     <ClCompile Include="Arania.cpp" />
     <ClCompile Include="Creditos.cpp" />
     <ClCompile Include="Enemigos.cpp" />
-    <ClCompile Include="Hormigas.cpp" />
+    <ClCompile Include="Aranitas.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -142,7 +142,7 @@
     <ClInclude Include="Arania.h" />
     <ClInclude Include="Creditos.h" />
     <ClInclude Include="Enemigos.h" />
-    <ClInclude Include="Hormigas.h" />
+    <ClInclude Include="Aranitas.h" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Monedas.h" />

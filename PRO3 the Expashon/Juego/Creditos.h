@@ -7,6 +7,10 @@ class Creditos
 private: 
 	SoundBuffer music;
 	Sound sound;
+	Font font;
+	Text credits;
+	Texture texture;
+	Sprite sprite;
 public:
 	Creditos();
 	~Creditos();

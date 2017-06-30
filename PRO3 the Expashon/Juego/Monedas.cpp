@@ -7,6 +7,8 @@ Monedas::Monedas() :
 {
 	texture.loadFromFile("Puntos.png");
 	sprite.setTexture(texture);
+	x = rand() % (0 - 800);
+	y = rand() % (0 - 600);
 }
 
 
@@ -49,16 +51,12 @@ Texture Monedas::getTexture()
 	return texture;
 }
 
-void Monedas::Colision(Sprite Jugador, int & puntaje)
+void Monedas::Colision(int & puntaje)
 {
-	if (sprite.getGlobalBounds().intersects(Jugador.getGlobalBounds())) {
-		puntaje += puntos;
-	}
+	x = rand() % (0 - 800);
+	y = rand() % (0 - 600);
+	puntaje += puntos;
+
 }
 
-int Monedas::numRand(int pos)
-{
-	srand(time(NULL));
-	num = rand() % pos;
-	return num;
-}
+
